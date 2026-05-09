@@ -40,6 +40,11 @@ h2 {
   font-family: 'JetBrains Mono ExtraBold', sans-serif;
 }
 
+h5 {
+  font-size: 1.5em;
+  color: #a5b4fc;
+}
+
 p,
 li {
   font-size: 1.1em;
