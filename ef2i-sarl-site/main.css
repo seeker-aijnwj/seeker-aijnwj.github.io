@@ -1,0 +1,820 @@
+/* ================================================================
+   EF2I SARL — Feuille de style principale
+   ----------------------------------------------------------------
+   Fichier : main.css
+   Organisation :
+     1. Variables (charte graphique EF2I)
+     2. Reset & base
+     3. Utilitaires (wrap, accessibilité)
+     4. En-têtes (topbar + header + nav)
+     5. Hero
+     6. Sections génériques (titres de section)
+     7. Présentation
+     8. Missions
+     9. Produits + filtres
+    10. Bandeau CTA
+    11. Partenaires
+    12. Contact + formulaire
+    13. Footer
+    14. Responsive (mobile / tablette)
+   ================================================================ */
+
+
+/* ============================================================
+   1. VARIABLES — Charte graphique EF2I SARL
+   Bleu industriel + ambre sécurité, cohérent avec le poster.
+   A reprendre telles quelles dans le style.css du thème WordPress.
+============================================================ */
+:root{
+  --navy:        #0A2540; /* bleu marine principal (fond header, textes titres) */
+  --navy-deep:   #071B30; /* bleu marine foncé (fonds sombres) */
+  --blue:        #1565D8; /* bleu électrique (accents, liens, boutons secondaires) */
+  --blue-light:  #4B8CE8; /* bleu clair (illustrations, hover) */
+  --amber:       #F4A300; /* ambre sécurité (CTA, accents forts) */
+  --bg:          #F5F7FA; /* fond clair des sections alternées */
+  --ink:         #12202E; /* texte principal */
+  --grey:        #5B6B7A; /* texte secondaire / paragraphes */
+  --line:        #DCE3EA; /* bordures et séparateurs */
+  --white:       #FFFFFF;
+}
+
+/* ============================================================
+   2. RESET & BASE
+============================================================ */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.05;
+  color: var(--navy);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+img, svg{
+  max-width: 100%;
+  display: block;
+}
+
+ul{
+  list-style: none;
+}
+
+/* Focus clavier visible — accessibilité (WCAG) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* Classe utilitaire pour labels accessibles mais masqués visuellement */
+.visually-hidden{
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respect de la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ============================================================
+   3. UTILITAIRES
+============================================================ */
+.wrap{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   4. EN-TÊTE : barre supérieure + header + navigation
+============================================================ */
+.topbar{
+  background: var(--navy-deep);
+  color: #B9C7D6;
+  font-size: 13px;
+}
+.topbar .wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+}
+.topbar-links{
+  display: flex;
+  gap: 22px;
+}
+.topbar-links span{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.topbar-links a{ color: inherit; }
+.topbar-links a:hover{ color: #fff; }
+
+header.main{
+  background: var(--navy);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 3px solid var(--amber);
+}
+header.main .wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 78px;
+}
+
+/* Logo (à remplacer par <img> du vrai logo EF2I en production) */
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+.logo-mark{
+  width: 44px; height: 44px;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed'; font-weight: 700; font-size: 20px; color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
+}
+.logo-text b{
+  font-size: 20px; letter-spacing: 1px; display: block;
+}
+.logo-text span{
+  font-size: 11px; color: #9FB3C8; letter-spacing: 0.5px;
+}
+
+/* Navigation principale */
+nav.primary ul{
+  display: flex;
+  gap: 34px;
+}
+nav.primary a{
+  color: #DCE6F0;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+nav.primary a:hover{ color: #fff; }
+nav.primary a.active::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
+  background: var(--amber);
+}
+
+.header-cta{
+  background: var(--amber);
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 22px;
+  white-space: nowrap;
+}
+
+/* Bouton menu mobile (hamburger) — piloté par main.js */
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle span{
+  width: 24px; height: 2px;
+  background: #fff;
+  display: block;
+}
+
+/* ============================================================
+   5. HERO
+============================================================ */
+.hero{
+  background: linear-gradient(120deg, var(--navy) 0%, #0E3768 55%, var(--blue) 130%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+/* Motif de lignes discret en fond, évoque le câblage/structure métallique */
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 90px);
+}
+.hero-inner{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  padding: 88px 0 78px;
+  align-items: center;
+}
+.hero-eyebrow{
+  color: var(--amber);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  margin-bottom: 14px;
+  display: block;
+}
+.hero h1{
+  color: #fff;
+  font-size: 52px;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+.hero h1 em{
+  color: var(--amber);
+  font-style: normal;
+}
+.hero p{
+  color: #C9D8E8;
+  font-size: 17px;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+.hero-actions{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Boutons génériques réutilisés dans plusieurs sections */
+.btn{
+  display: inline-block;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+.btn-amber{
+  background: var(--amber);
+  color: var(--navy-deep);
+}
+.btn-amber:hover{ background: #ffb52e; }
+.btn-outline{
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+.btn-outline:hover{
+  border-color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+/* Bloc chiffres clés dans le hero */
+.hero-stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.hero-stats div{
+  background: rgba(10,37,64,0.55);
+  padding: 26px 22px;
+}
+.hero-stats strong{
+  font-family: 'Barlow Condensed';
+  font-size: 38px;
+  color: var(--amber);
+  display: block;
+}
+.hero-stats span{
+  font-size: 13px;
+  color: #C9D8E8;
+}
+
+/* ============================================================
+   6. SECTIONS GÉNÉRIQUES — titres, kicker, en-têtes de section
+============================================================ */
+section{
+  padding: 74px 0;
+}
+.section-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  gap: 20px;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 20px;
+}
+.section-head-center{
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+}
+.section-head h2{
+  font-size: 36px;
+}
+.section-head p{
+  color: var(--grey);
+  max-width: 420px;
+  font-size: 15px;
+}
+.section-head-sub{
+  margin-top: 6px;
+}
+.kicker{
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+  display: block;
+}
+.kicker-light{
+  color: var(--amber);
+}
+
+/* ============================================================
+   7. PRÉSENTATION DE L'ENTREPRISE
+============================================================ */
+.presentation{
+  background: var(--bg);
+}
+.pres-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.pres-text p{
+  color: var(--grey);
+  margin-bottom: 16px;
+  font-size: 15.5px;
+}
+.pres-media{
+  position: relative;
+  border-left: 6px solid var(--blue);
+  background: var(--navy);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.mini-figures{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+.mini-figures div{
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 16px;
+  text-align: center;
+}
+.mini-figures strong{
+  display: block;
+  font-family: 'Barlow Condensed';
+  font-size: 28px;
+  color: var(--blue);
+}
+.mini-figures span{
+  font-size: 12.5px;
+  color: var(--grey);
+}
+
+/* ============================================================
+   8. NOS MISSIONS
+============================================================ */
+.missions{
+  background: var(--navy);
+  color: #fff;
+}
+.missions .section-head{
+  border-color: rgba(255,255,255,0.15);
+}
+.missions .section-head h2{
+  color: #fff;
+}
+.missions .section-head p{
+  color: #AFC1D4;
+}
+.missions-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.12);
+}
+.mission-card{
+  background: var(--navy-deep);
+  padding: 32px 28px;
+}
+.mission-card .num{
+  font-family: 'Barlow Condensed';
+  font-size: 44px;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 10px;
+}
+.mission-card h3{
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.mission-card p{
+  color: #B9C7D6;
+  font-size: 14.5px;
+}
+
+/* ============================================================
+   9. NOS PRODUITS — grille filtrable
+============================================================ */
+.products{
+  background: var(--white);
+}
+.filter-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.filter-tabs button{
+  font-family: 'Inter';
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 18px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-tabs button.active,
+.filter-tabs button:hover{
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.product-card{
+  background: #fff;
+  padding: 26px 24px;
+  transition: background 0.15s;
+}
+.product-card:hover{
+  background: var(--bg);
+}
+.product-card .cat-icon{
+  width: 40px; height: 40px;
+  background: var(--navy);
+  color: var(--amber);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-family: 'Barlow Condensed';
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+.product-card h4{
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+.product-card p{
+  font-size: 13.5px;
+  color: var(--grey);
+}
+/* Classe ajoutée dynamiquement par main.js pour masquer les produits filtrés */
+.product-card.is-hidden{
+  display: none;
+}
+
+/* ============================================================
+   10. BANDEAU CTA (appel à l'action devis)
+============================================================ */
+.cta-band{
+  background: linear-gradient(100deg, var(--blue) 0%, var(--navy) 100%);
+  color: #fff;
+  padding: 56px 0;
+}
+.cta-band-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.cta-band h3{
+  color: #fff;
+  font-size: 30px;
+  max-width: 520px;
+}
+.cta-band p{
+  color: #D6E4F2;
+  font-size: 14.5px;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   11. NOS PARTENAIRES
+============================================================ */
+.partners{
+  background: var(--bg);
+  text-align: center;
+}
+.partner-row{
+  display: flex;
+  justify-content: center;
+  gap: 44px;
+  flex-wrap: wrap;
+  align-items: center;
+  opacity: 0.85;
+}
+.partner-row span{
+  font-family: 'Barlow Condensed';
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--grey);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   12. CONTACT + FORMULAIRE
+============================================================ */
+.contact{
+  background: var(--navy-deep);
+  color: #fff;
+}
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.contact h2{
+  color: #fff;
+}
+.contact-info p{
+  color: #AFC1D4;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+.contact-list li{
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14.5px;
+}
+.contact-list b{
+  color: var(--amber);
+  font-weight: 700;
+  min-width: 110px;
+  display: inline-block;
+}
+.contact-list a:hover{
+  text-decoration: underline;
+}
+
+.form input,
+.form textarea{
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-family: 'Inter';
+  font-size: 14px;
+}
+.form input::placeholder,
+.form textarea::placeholder{
+  color: #8CA0B4;
+}
+.form button{
+  background: var(--amber);
+  color: var(--navy-deep);
+  border: none;
+  padding: 14px 30px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.form button:hover{
+  background: #ffb52e;
+}
+.form-note{
+  margin-top: 12px;
+  font-size: 13.5px;
+  color: var(--amber);
+}
+
+/* ============================================================
+   12bis. ESPACE DOCUMENTS — téléchargement du cahier des charges
+============================================================ */
+.documents{
+  background: var(--bg);
+}
+.document-list{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.document-card{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--blue);
+  padding: 24px 26px;
+  flex-wrap: wrap;
+}
+.document-icon{
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  background: var(--navy);
+  color: var(--amber);
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  display: flex; align-items: center; justify-content: center;
+}
+.document-info{
+  flex: 1 1 320px;
+}
+.document-info h4{
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.document-info p{
+  font-size: 14px;
+  color: var(--grey);
+  margin-bottom: 8px;
+}
+.document-meta{
+  font-size: 12.5px;
+  color: var(--blue);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+/* Variante de bouton utilisée pour l'action de téléchargement,
+   distincte des CTA amber pour ne pas concurrencer "Demander un devis" */
+.btn-outline-navy{
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  background: transparent;
+  white-space: nowrap;
+}
+.btn-outline-navy:hover{
+  background: var(--navy);
+  color: #fff;
+}
+.btn-outline-amber{
+  border: 2px solid var(--amber);
+  color: var(--amber);
+  background: transparent;
+  white-space: nowrap;
+}
+.btn-outline-amber:hover{
+  background: var(--amber);
+  color: #fff;
+}
+.documents-note{
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--grey);
+  font-style: italic;
+}
+
+/* ============================================================
+   13. FOOTER
+============================================================ */
+footer#site-footer{
+  background: var(--navy-deep);
+  color: #8CA0B4;
+  font-size: 13px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer#site-footer .wrap{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ============================================================
+   14. RESPONSIVE — tablette puis mobile
+============================================================ */
+@media (max-width: 880px){
+  nav.primary{
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--navy);
+    border-bottom: 3px solid var(--amber);
+  }
+  nav.primary.is-open{
+    display: block;
+  }
+  nav.primary ul{
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 24px 20px;
+  }
+  nav.primary a{
+    display: block;
+    padding: 12px 0;
+  }
+  .header-cta{
+    display: none;
+  }
+  .nav-toggle{
+    display: flex;
+  }
+
+  .hero-inner{
+    grid-template-columns: 1fr;
+  }
+  .hero h1{
+    font-size: 38px;
+  }
+
+  .pres-grid,
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .missions-grid,
+  .product-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px){
+  .missions-grid,
+  .product-grid{
+    grid-template-columns: 1fr;
+  }
+  .cta-band-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .topbar .wrap{
+    flex-direction: column;
+    height: auto;
+    padding: 8px 24px;
+    gap: 4px;
+  }
+  .document-card{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .document-card .btn-outline-navy{
+    width: 100%;
+    text-align: center;
+  }
+  .document-card .btn-outline-amber{
+    width: 100%;
+    text-align: center;
+  }
+}

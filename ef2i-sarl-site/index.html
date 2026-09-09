@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  EF2I SARL — Site vitrine (maquette de démonstration)
+  ------------------------------------------------------------
+  Fichier : index.html
+  Rôle    : structure HTML5 sémantique de la page d'accueil.
+  Base destinée à être convertie en thème WordPress :
+    - header.php -> bloc <header> + <nav>
+    - front-page.php / index.php -> le contenu de <main>
+    - footer.php -> bloc <footer>
+    - Les sections répétables (produits, missions) sont
+      pensées pour devenir des boucles WP_Query / ACF Repeater.
+  ============================================================
+-->
+<html lang="fr">
+<head>
+  <!-- ===== Encodage & affichage responsive ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO : Titre & description =====
+       En WordPress : wp_title() / bloom du SEO plugin (Yoast/RankMath) -->
+  <title>EF2I SARL — Fourniture et Installation Industrielle à Abidjan</title>
+  <meta name="description" content="EF2I SARL, entreprise ivoirienne créée en 2013, spécialisée dans la distribution et l'installation de matériel industriel : câblage, tableaux électriques, EPI, groupes électrogènes, outillage et quincaillerie générale.">
+  <meta name="keywords" content="EF2I SARL, fourniture industrielle Abidjan, installation électrique Côte d'Ivoire, EPI, tableau électrique, groupe électrogène, quincaillerie industrielle">
+  <meta name="author" content="EF2I SARL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ef2i-ci.com/">
+
+  <!-- ===== SEO : Open Graph (partage réseaux sociaux) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="EF2I SARL">
+  <meta property="og:title" content="EF2I SARL — Fourniture et Installation Industrielle">
+  <meta property="og:description" content="Distribution et installation de matériel industriel de qualité depuis 2013 : câblage, tableaux électriques, EPI, outillage et plus encore.">
+  <meta property="og:url" content="https://www.ef2i-ci.com/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="https://www.ef2i-ci.com/assets/img/og-cover.jpg">
+
+  <!-- ===== SEO : Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EF2I SARL — Fourniture et Installation Industrielle">
+  <meta name="twitter:description" content="Distribution et installation de matériel industriel de qualité à Abidjan depuis 2013.">
+
+  <!-- ===== Favicon (à remplacer par les vrais fichiers du logo EF2I) ===== -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+  <!-- ===== Polices Google Fonts ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ===== Feuille de style principale ===== -->
+  <link rel="stylesheet" href="main.css">
+
+  <!-- ===== SEO : Données structurées Schema.org (LocalBusiness) =====
+       Permet à Google d'afficher EF2I SARL en fiche enrichie
+       (adresse, téléphone, horaires) dans les résultats de recherche. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HardwareStore",
+    "name": "EF2I SARL",
+    "alternateName": "Entreprise de Fourniture et Installation Industrielle",
+    "url": "https://www.ef2i-ci.com/",
+    "logo": "https://www.ef2i-ci.com/assets/img/logo.png",
+    "foundingDate": "2013",
+    "description": "Distribution et installation de matériel industriel de qualité : câblage, tableaux électriques, EPI, groupes électrogènes et outillage.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abidjan",
+      "addressCountry": "CI"
+    },
+    "telephone": "+225XXXXXXXXXX",
+    "email": "contact@ef2i-ci.com",
+    "openingHours": "Mo-Fr 08:00-17:30"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       BARRE SUPÉRIEURE — infos de contact rapide
+       WordPress : à intégrer en haut de header.php
+  ============================================================ -->
+  <div class="topbar" role="complementary" aria-label="Coordonnées rapides">
+    <div class="wrap">
+      <div class="topbar-links">
+        <span><span aria-hidden="true">📍</span> Abidjan, Côte d'Ivoire</span>
+        <span><span aria-hidden="true">📞</span> <a href="tel:+225XXXXXXXXXX">+225 XX XX XX XX XX</a></span>
+      </div>
+      <div class="topbar-links">
+        <span><span aria-hidden="true">✉</span> <a href="mailto:contact@ef2i-ci.com">contact@ef2i-ci.com</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       EN-TÊTE / NAVIGATION PRINCIPALE
+       WordPress : header.php — remplacer <nav><ul> par wp_nav_menu()
+  ============================================================ -->
+  <header class="main" id="site-header">
+    <div class="wrap">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">EF</div>
+        <div class="logo-text">
+          <b>EF2I SARL</b>
+          <span>FOURNITURE &amp; INSTALLATION INDUSTRIELLE</span>
+        </div>
+      </div>
+
+      <!-- Bouton menu mobile (JS dans main.js) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary" id="primaryNav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#missions">Nos missions</a></li>
+          <li><a href="#produits">Nos produits</a></li>
+          <li><a href="#documents">Documents</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="header-cta">Demander un devis</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         SECTION HERO
+         WordPress : idéal pour un champ ACF "Titre accueil" éditable
+    ============================================================ -->
+    <section class="hero" id="accueil" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-content">
+          <span class="hero-eyebrow">DEPUIS 2013 · ABIDJAN, CÔTE D'IVOIRE</span>
+          <h1 id="hero-title">Vos équipements industriels, livrés avec <em>fiabilité</em>.</h1>
+          <p>EF2I SARL distribue et installe du matériel industriel de qualité : câblage, tableaux électriques, EPI, groupes électrogènes et outillage — pour l'industrie, le BTP et le tertiaire.</p>
+          <div class="hero-actions">
+            <a href="#produits" class="btn btn-amber">Voir nos produits</a>
+            <a href="#contact" class="btn btn-outline">Nous contacter</a>
+          </div>
+        </div>
+
+        <div class="hero-stats" role="list" aria-label="Chiffres clés EF2I SARL">
+          <div role="listitem"><strong>2013</strong><span>Année de création</span></div>
+          <div role="listitem"><strong>25+</strong><span>Familles de produits</span></div>
+          <div role="listitem"><strong>100%</strong><span>Écoute client</span></div>
+          <div role="listitem"><strong>CI</strong><span>Couverture nationale</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION PRÉSENTATION DE L'ENTREPRISE
+         (contenu fidèle au poster fourni par le client)
+    ============================================================ -->
+    <section class="presentation" id="presentation" aria-labelledby="presentation-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker">QUI SOMMES-NOUS</span>
+            <h2 id="presentation-title">Présentation de l'entreprise</h2>
+          </div>
+        </div>
+
+        <div class="pres-grid">
+          <div class="pres-text">
+            <p>Créée en 2013, <strong>EF2I SARL</strong> est une entreprise spécialisée dans la distribution et l'installation de matériel industriel de qualité. Elle met à disposition de ses clients des produits fiables, avec en son sein une équipe dynamique et opérationnelle, dotée d'un savoir-faire et d'une connaissance approfondie du domaine.</p>
+            <p>EF2I SARL a pour objectif la satisfaction au mieux de la clientèle. Eu égard à cette exigence, l'écoute et l'attention portées au quotidien à chaque client restent notre priorité.</p>
+
+            <div class="mini-figures" role="list" aria-label="Repères de l'entreprise">
+              <div role="listitem"><strong>13</strong><span>ans d'expérience</span></div>
+              <div role="listitem"><strong>24/7</strong><span>réactivité équipe</span></div>
+              <div role="listitem"><strong>360°</strong><span>du domestique à l'industriel</span></div>
+            </div>
+          </div>
+
+          <!-- Illustration vectorielle décorative : à remplacer par une vraie photo
+               d'atelier/chantier EF2I en production. Attribut alt renseigné pour l'accessibilité. -->
+          <figure class="pres-media">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration d'un pylône électrique, d'une horloge de maintenance et d'un tableau électrique">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1565D8"/>
+                  <stop offset="100%" stop-color="#0A2540"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="300" fill="url(#g1)"/>
+              <g stroke="#F4A300" stroke-width="2" fill="none" opacity="0.9">
+                <line x1="80" y1="260" x2="80" y2="60"/>
+                <line x1="80" y1="60" x2="40" y2="20"/>
+                <line x1="80" y1="60" x2="120" y2="20"/>
+                <line x1="80" y1="120" x2="45" y2="90"/>
+                <line x1="80" y1="120" x2="115" y2="90"/>
+                <line x1="80" y1="180" x2="50" y2="150"/>
+                <line x1="80" y1="180" x2="110" y2="150"/>
+              </g>
+              <circle cx="300" cy="90" r="34" fill="none" stroke="#4B8CE8" stroke-width="2"/>
+              <path d="M300 56 L306 90 L338 90" fill="none" stroke="#F4A300" stroke-width="3"/>
+              <rect x="250" y="180" width="110" height="70" fill="none" stroke="#4B8CE8" stroke-width="2"/>
+              <line x1="260" y1="195" x2="350" y2="195" stroke="#4B8CE8" stroke-width="1.5"/>
+              <line x1="260" y1="210" x2="350" y2="210" stroke="#4B8CE8" stroke-width="1.5"/>
+              <line x1="260" y1="225" x2="350" y2="225" stroke="#4B8CE8" stroke-width="1.5"/>
+            </svg>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION NOS MISSIONS
+         WordPress : idéale en Custom Post Type "mission" (3 items ACF)
+    ============================================================ -->
+    <section class="missions" id="missions" aria-labelledby="missions-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker kicker-light">CE QUI NOUS ANIME</span>
+            <h2 id="missions-title">Nos missions</h2>
+          </div>
+          <p>Découvrez ce qui rend notre équipe technico-commerciale différente.</p>
+        </div>
+
+        <div class="missions-grid">
+          <article class="mission-card">
+            <span class="num" aria-hidden="true">01</span>
+            <h3>Une équipe pointue</h3>
+            <p>EF2I SARL regorge en son sein une brillante équipe technico-commerciale qui allie savoir-faire et connaissance pointue des matériaux, dans tout son ensemble.</p>
+          </article>
+          <article class="mission-card">
+            <span class="num" aria-hidden="true">02</span>
+            <h3>Du domestique à l'industriel</h3>
+            <p>Nous couvrons l'usage domestique comme l'usage industriel, en passant par le standard, le sécuritaire et le tertiaire.</p>
+          </article>
+          <article class="mission-card">
+            <span class="num" aria-hidden="true">03</span>
+            <h3>Réactivité et efficacité</h3>
+            <p>Nous sommes aptes à répondre de façon rapide et efficace à vos besoins, depuis le traitement de votre demande jusqu'à la livraison.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION NOS PRODUITS
+         WordPress : boucle sur le Custom Post Type "produit" +
+         taxonomie "categorie_produit" pour les filtres.
+         Les 12 items ci-dessous reprennent la liste complète du poster.
+    ============================================================ -->
+    <section class="products" id="produits" aria-labelledby="produits-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker">CATALOGUE</span>
+            <h2 id="produits-title">Nos produits</h2>
+            <p class="section-head-sub">EF2I SARL dispose d'une large gamme de produits pour l'industrie et le BTP.</p>
+          </div>
+        </div>
+
+        <!-- Filtres catégories (JS dans main.js) -->
+        <div class="filter-tabs" role="tablist" aria-label="Filtrer les produits par catégorie">
+          <button class="active" data-f="all" role="tab" aria-selected="true">Tous</button>
+          <button data-f="elec" role="tab" aria-selected="false">Électrique</button>
+          <button data-f="protect" role="tab" aria-selected="false">Protection</button>
+          <button data-f="outil" role="tab" aria-selected="false">Outillage</button>
+          <button data-f="btp" role="tab" aria-selected="false">BTP &amp; Chantier</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <article class="product-card" data-cat="elec">
+            <div class="cat-icon" aria-hidden="true">01</div>
+            <h4>Chemin de câble et accessoires</h4>
+            <p>Câbles domestiques et industriels, accessoires de raccordement.</p>
+          </article>
+          <article class="product-card" data-cat="outil">
+            <div class="cat-icon" aria-hidden="true">02</div>
+            <h4>Compresseurs et accessoires</h4>
+            <p>Équipements de compression pour ateliers et chantiers.</p>
+          </article>
+          <article class="product-card" data-cat="elec">
+            <div class="cat-icon" aria-hidden="true">03</div>
+            <h4>Appareillage</h4>
+            <p>Appareillage électrique pour installations domestiques et industrielles.</p>
+          </article>
+          <article class="product-card" data-cat="btp">
+            <div class="cat-icon" aria-hidden="true">04</div>
+            <h4>Accessoires de construction</h4>
+            <p>Gamme complète pour le bâtiment et les travaux publics.</p>
+          </article>
+          <article class="product-card" data-cat="elec">
+            <div class="cat-icon" aria-hidden="true">05</div>
+            <h4>Tableau électrique</h4>
+            <p>Tableaux et solutions de distribution électrique.</p>
+          </article>
+          <article class="product-card" data-cat="btp">
+            <div class="cat-icon" aria-hidden="true">06</div>
+            <h4>Accessoires de menuiserie</h4>
+            <p>Fournitures et quincaillerie pour la menuiserie.</p>
+          </article>
+          <article class="product-card" data-cat="protect">
+            <div class="cat-icon" aria-hidden="true">07</div>
+            <h4>Équipements de protection individuelle</h4>
+            <p>EPI complets : casques, chaussures, gants, protections diverses.</p>
+          </article>
+          <article class="product-card" data-cat="protect">
+            <div class="cat-icon" aria-hidden="true">08</div>
+            <h4>Appareillage de protection</h4>
+            <p>Dispositifs de protection électrique et sécuritaire.</p>
+          </article>
+          <article class="product-card" data-cat="outil">
+            <div class="cat-icon" aria-hidden="true">09</div>
+            <h4>Groupes électrogènes</h4>
+            <p>Solutions d'alimentation de secours pour tous besoins.</p>
+          </article>
+          <article class="product-card" data-cat="elec">
+            <div class="cat-icon" aria-hidden="true">10</div>
+            <h4>Accessoire électrique</h4>
+            <p>Boulonnerie, visserie et fixation électrique.</p>
+          </article>
+          <article class="product-card" data-cat="outil">
+            <div class="cat-icon" aria-hidden="true">11</div>
+            <h4>Outils de perçage</h4>
+            <p>Outillage professionnel pour perçage et fixation.</p>
+          </article>
+          <article class="product-card" data-cat="btp">
+            <div class="cat-icon" aria-hidden="true">12</div>
+            <h4>Manutention &amp; levage</h4>
+            <p>Équipements pour la manutention en environnement industriel.</p>
+          </article>
+          <article class="product-card" data-cat="elec">
+            <div class="cat-icon" aria-hidden="true">13</div>
+            <h4>Globes et projecteurs</h4>
+            <p>Éclairage industriel et équipement de ligne.</p>
+          </article>
+          <article class="product-card" data-cat="btp">
+            <div class="cat-icon" aria-hidden="true">14</div>
+            <h4>Quincaillerie générale</h4>
+            <p>Solution de distribution et de livraison, pièces de rechange et divers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BANDEAU CTA — appel à l'action devis
+    ============================================================ -->
+    <section class="cta-band" aria-label="Appel à l'action devis">
+      <div class="wrap cta-band-inner">
+        <div>
+          <h3>Besoin d'un devis rapide sur un produit ou une installation ?</h3>
+          <p>Notre équipe technico-commerciale vous répond sous 24h ouvrées.</p>
+        </div>
+        <a href="#contact" class="btn btn-amber">Demander un devis</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION PARTENAIRES
+         WordPress : à remplacer par un carrousel de logos (ACF Gallery)
+    ============================================================ -->
+    <section class="partners" aria-labelledby="partners-title">
+      <div class="wrap">
+        <div class="section-head section-head-center">
+          <span class="kicker">ILS NOUS FONT CONFIANCE</span>
+          <h2 id="partners-title">Nos partenaires</h2>
+        </div>
+        <div class="partner-row" role="list" aria-label="Logos partenaires">
+          <span role="listitem">PARTENAIRE A</span>
+          <span role="listitem">PARTENAIRE B</span>
+          <span role="listitem">PARTENAIRE C</span>
+          <span role="listitem">PARTENAIRE D</span>
+          <span role="listitem">PARTENAIRE E</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION CONTACT
+         WordPress : formulaire à remplacer par Contact Form 7 / WPForms
+    ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <span class="kicker kicker-light">PARLONS-EN</span>
+          <h2 id="contact-title">Contactez-nous</h2>
+          <p>Une question, un projet, une demande de devis ? Notre équipe vous répond rapidement.</p>
+          <ul class="contact-list">
+            <li><b>Adresse</b> Abidjan, Côte d'Ivoire</li>
+            <li><b>Téléphone</b> <a href="tel:+225XXXXXXXXXX">+225 XX XX XX XX XX</a></li>
+            <li><b>Email</b> <a href="mailto:contact@ef2i-ci.com">contact@ef2i-ci.com</a></li>
+            <li><b>Horaires</b> Lun–Ven : 8h–17h30</li>
+          </ul>
+        </div>
+
+        <form class="form" id="contactForm" aria-label="Formulaire de contact">
+          <label for="cf-name" class="visually-hidden">Nom complet</label>
+          <input type="text" id="cf-name" name="name" placeholder="Nom complet" required>
+
+          <label for="cf-email" class="visually-hidden">Adresse email</label>
+          <input type="email" id="cf-email" name="email" placeholder="Adresse email" required>
+
+          <label for="cf-phone" class="visually-hidden">Téléphone</label>
+          <input type="text" id="cf-phone" name="phone" placeholder="Téléphone">
+
+          <label for="cf-message" class="visually-hidden">Votre message</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Votre message"></textarea>
+
+          <button type="submit">Envoyer la demande</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION ESPACE DOCUMENTS — zone de téléchargement client
+         Permet à EF2I SARL de télécharger directement le cahier des
+         charges (et, à terme, d'autres documents projet : devis,
+         factures, catalogues PDF) depuis le site.
+         SEO : rel="nofollow" + meta robots noindex sur le fichier lui-même
+         ne sont pas nécessaires ici (ce n'est pas une page indexable),
+         mais on évite de faire remonter ce bloc dans le maillage
+         interne principal (pas de lien depuis le menu principal).
+         WordPress : à terme, remplacer par un espace client protégé
+         par mot de passe (rôle "client" + plugin de gestion documentaire),
+         ou par un simple Custom Post Type "document" avec champ fichier ACF.
+    ============================================================ -->
+    <section class="documents" id="documents" aria-labelledby="documents-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker">ESPACE CLIENT</span>
+            <h2 id="documents-title">Documents du projet</h2>
+            <p class="section-head-sub">Retrouvez ici les documents officiels liés au projet de site web EF2I SARL.</p>
+          </div>
+        </div>
+
+        <div class="document-list">
+          <article class="document-card">
+            <div class="document-icon" aria-hidden="true">DOC</div>
+            <div class="document-info">
+              <h4>Cahier des charges — Site web EF2I SARL</h4>
+              <p>
+                Présentation du projet, options de réalisation (A, B et C),
+                chiffrage détaillé, planning et modalités de paiement.
+              s</p>
+              <span class="document-meta">Format PDF (.pdf) · Version 1.0</span>
+            </div>
+            <a class="btn btn-outline-navy"
+               href="assets/docs/EF2I-Cahier-des-charges.pdf"
+               download="EF2I-Cahier-des-charges.pdf"
+               aria-label="Télécharger le cahier des charges au format Word">
+              Télécharger
+            </a>
+          </article>
+        </div>
+
+        <p class="documents-note">D'autres documents (devis signé, catalogue PDF, factures) pourront être ajoutés à cet espace au fil du projet.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       PIED DE PAGE
+       WordPress : footer.php
+  ============================================================ -->
+  <footer id="site-footer">
+    <div class="wrap">
+      <span>© <span id="currentYear">2026</span> EF2I SARL — Tous droits réservés.</span>
+      <span>Maquette de démonstration</span>
+    </div>
+  </footer>
+
+  <!-- ===== Script principal (fin de body pour performance) ===== -->
+  <script src="main.js"></script>
+</body>
+</html>
