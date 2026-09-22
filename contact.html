@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Nincekon</title>
+  <meta name="description" content="Contactez Nincekon pour une formation numérique, un projet de développement d'application (SaaS/PWA) ou un accompagnement musical : coordonnées, devis ou message direct.">
+  <link rel="canonical" href="https://seeker-aijnwj.github.io/contact.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Nincekon">
+  <meta property="og:description" content="Demandez un devis (formation, application SaaS/PWA, musique) ou envoyez un message à Nincekon.">
+  <meta property="og:image" content="img/portrait.png">
+  <meta property="og:url" content="https://seeker-aijnwj.github.io/contact.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#142c46">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Nincekon <span>YORO Zandé</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header container">
+      <h1>Contact</h1>
+      <p>Une question, un projet de formation ou d'accompagnement musical&nbsp;? Écrivez-moi.</p>
+    </div>
+
+    <section>
+      <div class="container contact-grid">
+        <div>
+          <h2>Coordonnées</h2>
+          <dl class="contact-info-list">
+            <div>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:lorem.ipsum@gmail.com" class="placeholder" title="Espace réservé — remplacez par votre adresse Gmail">lorem.ipsum@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt>Téléphone</dt>
+              <dd class="placeholder" title="Espace réservé — remplacez par votre numéro de téléphone">Lorem ipsum</dd>
+            </div>
+            <div>
+              <dt>Localisation</dt>
+              <dd class="placeholder" title="Espace réservé — remplacez par votre ville et pays">Lorem ipsum, Lorem ipsum</dd>
+            </div>
+          </dl>
+
+          <h2 style="margin-top:2rem;">Réseaux</h2>
+          <ul class="social-list">
+            <li><a href="#" aria-label="LinkedIn — espace réservé" class="placeholder" title="Espace réservé — lien LinkedIn">in</a></li>
+            <li><a href="#" aria-label="Facebook — espace réservé" class="placeholder" title="Espace réservé — lien Facebook">fb</a></li>
+            <li><a href="#" aria-label="Instagram — espace réservé" class="placeholder" title="Espace réservé — lien Instagram">ig</a></li>
+          </ul>
+
+          <div class="map-note placeholder" style="margin-top:2rem;" title="Espace réservé — carte facultative">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit (emplacement réservé pour une carte Google Maps / OpenStreetMap).
+          </div>
+        </div>
+
+        <div>
+          <div class="form-tabs" role="tablist" aria-label="Choisir un formulaire">
+            <button class="form-tab" role="tab" data-target="quote-panel" aria-selected="true" aria-controls="quote-panel" id="tab-quote">Demander un devis</button>
+            <button class="form-tab" role="tab" data-target="message-panel" aria-selected="false" aria-controls="message-panel" id="tab-message">Laisser un message</button>
+          </div>
+
+          <div class="form-panel" id="quote-panel" role="tabpanel" aria-labelledby="tab-quote">
+            <form id="quote-form" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="q-name">Nom complet</label>
+                  <input type="text" id="q-name" name="name" required>
+                </div>
+                <div class="field">
+                  <label for="q-email">E-mail</label>
+                  <input type="email" id="q-email" name="email" required>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="q-phone">Téléphone (facultatif)</label>
+                  <input type="tel" id="q-phone" name="phone">
+                </div>
+                <div class="field">
+                  <label for="q-type">Type de projet</label>
+                  <select id="q-type" name="project-type" required>
+                    <option value="">Choisissez une option</option>
+                    <option value="Formation numérique">Formation numérique</option>
+                    <option value="Développement d'application (SaaS / PWA)">Développement d'application (SaaS / PWA)</option>
+                    <option value="Accompagnement musical">Accompagnement musical</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="q-budget">Budget estimé (facultatif)</label>
+                <input type="text" id="q-budget" name="budget" placeholder="Ex. : à définir ensemble">
+              </div>
+              <div class="field">
+                <label for="q-description">Décrivez votre projet</label>
+                <textarea id="q-description" name="description" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer ma demande de devis</button>
+              <p class="form-note">En envoyant ce formulaire, votre messagerie s'ouvrira avec un e-mail pré-rempli à destination de mon adresse Gmail.</p>
+            </form>
+          </div>
+
+          <div class="form-panel" id="message-panel" role="tabpanel" aria-labelledby="tab-message" hidden>
+            <form id="message-form" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="m-name">Nom complet</label>
+                  <input type="text" id="m-name" name="name" required>
+                </div>
+                <div class="field">
+                  <label for="m-email">E-mail</label>
+                  <input type="email" id="m-email" name="email" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="m-message">Votre message</label>
+                <textarea id="m-message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer le message</button>
+              <p class="form-note">En envoyant ce formulaire, votre messagerie s'ouvrira avec un e-mail pré-rempli à destination de mon adresse Gmail.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Nincekon</strong></p>
+        <p class="placeholder" title="Espace réservé — remplacez par votre ville et pays">Lorem ipsum, Lorem ipsum</p>
+      </div>
+      <nav aria-label="Pied de page">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="admin-link">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-note">&copy; <span id="year"></span> Nincekon. Tous droits réservés.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pwa.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear().toString();
+  </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOwQaNNEPe3zopMI-nLMKGZ_ve_qekSPo",
+      authDomain: "nincekon-website.firebaseapp.com",
+      projectId: "nincekon-website",
+      storageBucket: "nincekon-website.firebasestorage.app",
+      messagingSenderId: "248004174462",
+      appId: "1:248004174462:web:d226b0e3bfbea2f896ee2f",
+      measurementId: "G-H1PJ49PBP7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique — Nyz</title>
+  <meta name="description" content="Guides, accompagnements et outils numériques ou musicaux à commander, avec paiement Wave, Orange Money, MTN MoMo, Moov Flooz ou Lemfi.">
+  <link rel="canonical" href="https://seeker-ainwj.github.io/boutique.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Boutique — Nincekon">
+  <meta property="og:description" content="Guides, accompagnements et outils numériques ou musicaux à commander.">
+  <meta property="og:image" content="img/portrait.png">
+  <meta property="og:url" content="https://seeker-ainwj.github.io/boutique.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#142c46">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Nincekon <span>YORO Zandé</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header container">
+      <h1>Boutique</h1>
+      <p>Guides, accompagnements et outils prêts à l'emploi, dans mes trois domaines. Paiement simple par Mobile Money (Wave, Orange Money, MTN MoMo, Moov Flooz) ou Lemfi.</p>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="blog-toolbar">
+          <div class="filters" role="group" aria-label="Filtrer par catégorie">
+            <button class="filter-btn" data-category="all" aria-pressed="true">Tous</button>
+            <button class="filter-btn" data-category="numerique" aria-pressed="false">Numérique</button>
+            <button class="filter-btn" data-category="applications" aria-pressed="false">Applications</button>
+            <button class="filter-btn" data-category="musique" aria-pressed="false">Musique</button>
+          </div>
+          <div class="search-field">
+            <label for="shop-search" class="visually-hidden">Rechercher un produit</label>
+            <input type="search" id="shop-search" placeholder="Rechercher un produit…">
+          </div>
+        </div>
+
+        <div class="product-grid" id="shop-list">
+          <p>Chargement des produits…</p>
+        </div>
+        <p class="blog-empty" id="shop-empty" hidden>Aucun produit ne correspond à votre recherche.</p>
+
+        <p class="form-note" style="margin-top:2rem;">
+          Paiement 100% manuel et sécurisé de votre côté&nbsp;: vous envoyez le règlement directement sur le numéro Mobile Money indiqué à la commande, puis vous confirmez par WhatsApp ou e-mail. Aucune donnée bancaire n'est demandée sur ce site.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Nincekon</strong></p>
+        <p class="placeholder" title="Espace réservé — remplacez par votre ville et pays">Lorem ipsum, Lorem ipsum</p>
+      </div>
+      <nav aria-label="Pied de page">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="admin-link">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-note">
+      &copy; <span id="year"></span> Nincekon. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/shop-data.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pwa.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear().toString();
+  </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOwQaNNEPe3zopMI-nLMKGZ_ve_qekSPo",
+      authDomain: "nincekon-website.firebaseapp.com",
+      projectId: "nincekon-website",
+      storageBucket: "nincekon-website.firebasestorage.app",
+      messagingSenderId: "248004174462",
+      appId: "1:248004174462:web:d226b0e3bfbea2f896ee2f",
+      measurementId: "G-H1PJ49PBP7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>

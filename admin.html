@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration — Nincekon</title>
+  <meta name="description" content="Espace d'administration : articles du blog, produits de la boutique, commandes et réglages.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#142c46">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Nincekon <span>YORO Zandé</span></a>
+      <span class="admin-badge">Espace admin</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header container">
+      <h1>Administration</h1>
+      <p>Gérez les articles du blog, les produits de la boutique, les commandes et les réglages de paiement. Ces changements sont enregistrés sur cet appareil et seront envoyés à votre base distante dès que la synchronisation sera activée (voir <code>js/sync.js</code>).</p>
+    </div>
+
+    <section id="admin-gate">
+      <div class="container">
+        <div class="admin-warning">
+          ⚠️ Cette page n'a <strong>aucune protection réelle</strong> : le mot de passe est vérifié uniquement dans le navigateur et reste visible dans le code source (<code>js/admin.js</code>). Elle est suffisante pour éviter les visites accidentelles, mais pas pour protéger des données sensibles. Ne partagez pas ce lien publiquement, et prévoyez une vraie authentification côté serveur avant d'y stocker des informations confidentielles.
+        </div>
+        <form id="admin-login-form" class="admin-login">
+          <div class="field">
+            <label for="admin-password">Mot de passe</label>
+            <input type="password" id="admin-password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Entrer</button>
+          <p class="form-status" id="admin-login-status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="admin-dashboard" hidden>
+      <div class="container">
+        <div class="admin-tabs" role="tablist" aria-label="Sections d'administration">
+          <button class="form-tab" role="tab" data-target="tab-articles" aria-selected="true">Articles</button>
+          <button class="form-tab" role="tab" data-target="tab-products" aria-selected="false">Produits</button>
+          <button class="form-tab" role="tab" data-target="tab-orders" aria-selected="false">Commandes</button>
+          <button class="form-tab" role="tab" data-target="tab-settings" aria-selected="false">Réglages</button>
+        </div>
+
+        <!-- Articles -->
+        <div class="form-panel admin-panel" id="tab-articles">
+          <div class="admin-panel-head">
+            <h2>Articles du blog</h2>
+            <button class="btn btn-primary" id="new-article-btn">+ Nouvel article</button>
+          </div>
+          <div id="article-form-zone" hidden></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="articles-table">
+              <thead>
+                <tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th></th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Produits -->
+        <div class="form-panel admin-panel" id="tab-products" hidden>
+          <div class="admin-panel-head">
+            <h2>Produits de la boutique</h2>
+            <button class="btn btn-primary" id="new-product-btn">+ Nouveau produit</button>
+          </div>
+          <div id="product-form-zone" hidden></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="products-table">
+              <thead>
+                <tr><th>Titre</th><th>Catégorie</th><th>Prix</th><th>Disponible</th><th></th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Commandes -->
+        <div class="form-panel admin-panel" id="tab-orders" hidden>
+          <h2>Commandes</h2>
+          <p class="form-note">Changer le statut ici met à jour votre suivi local. Cela ne notifie pas automatiquement le client — confirmez-le vous-même par WhatsApp ou e-mail après vérification du paiement reçu.</p>
+          <div class="admin-table-wrap">
+            <table class="admin-table" id="orders-table">
+              <thead>
+                <tr><th>Référence</th><th>Client</th><th>Téléphone</th><th>Montant</th><th>Paiement</th><th>Statut</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Réglages -->
+        <div class="form-panel admin-panel" id="tab-settings" hidden>
+          <h2>Réglages de paiement</h2>
+          <p class="form-note">Ce numéro est affiché aux clients lors d'une commande, pour les paiements Wave, Orange Money, MTN MoMo, Moov Flooz et Lemfi.</p>
+          <form id="settings-form">
+            <div class="field">
+              <label for="s-phone">Numéro Mobile Money / compte Wave / compte Lemfi</label>
+              <input type="text" id="s-phone" name="paymentPhoneNumber" placeholder="Ex. +225 07 00 00 00 00">
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <p class="form-status" id="settings-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-note">&copy; <span id="year"></span> Nincekon — Espace admin.</div>
+  </footer>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/blog-data.js"></script>
+  <script src="assets/js/shop-data.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear().toString();
+  </script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOwQaNNEPe3zopMI-nLMKGZ_ve_qekSPo",
+      authDomain: "nincekon-website.firebaseapp.com",
+      projectId: "nincekon-website",
+      storageBucket: "nincekon-website.firebasestorage.app",
+      messagingSenderId: "248004174462",
+      appId: "1:248004174462:web:d226b0e3bfbea2f896ee2f",
+      measurementId: "G-H1PJ49PBP7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>

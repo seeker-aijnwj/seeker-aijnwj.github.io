@@ -1,87 +1,207 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="utf-8" />
-    <title> Akwaba - Nincekon </title>
-    <link href="./assets/css/main.css" rel="stylesheet" />
-    <link href="./assets/css/index.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nincekon — Formations numériques, développement site web, SaaS &amp; PWA, accompagnement musical</title>
+  <meta name="description" content="Apprentissage, création, efficacité : Nincekon vous accompagne dans la maîtrise des technologies numériques, le développement d'applications (SaaS, PWA) et l'éveil de votre potentiel musical.">
+  <link rel="canonical" href="https://seeker-aijnwj.github.io/">
+  <!-- À COMPLÉTER : remplacez seeker-aijnwj par votre identifiant GitHub dans toutes les balises canonical/og:url de ce site -->
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nincekon — Formations numériques, développement site web, SaaS & PWA, accompagnement musical">
+  <meta property="og:description" content="Apprentissage, création, efficacité : je vous accompagne dans la maîtrise des technologies numériques, le développement d'applications (SaaS, PWA) et l'éveil de votre potentiel musical.">
+  <meta property="og:image" content="img/portrait.png">
+  <meta property="og:url" content="https://seeker-aijnwj.github.io/">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#142c46">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nincekon",
+    "jobTitle": "Formateur en technologies numériques, développeur d'applications SaaS/PWA et accompagnateur musical",
+    "knowsAbout": ["Technologies numériques", "Développement SaaS", "Développement PWA", "Musique"],
+    "url": "https://seeker-aijnwj.github.io/",
+    "image": "https://seeker-aijnwj.github.io/img/portrait.png",
+    "sameAs": []
+  }
+  </script>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="lien-icone">
-                NINCEKON
-            </a>
-            <div>
-                <a href="index.html">Accueil</a>
-                <a href="#">À propos</a>
-                <a href="portfolio.html">Portfolio</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="accueil-introduction">
-            <div>
-                <h1> NINCEKON <br> YORO ZANDE </h1>
-                <p>
-                    Apprendre, créer, sécuriser : je vous accompagne dans 
-                    la maîtrise des <em>technologies numériques</em> et l'éveil de 
-                    votre <em>potentiel musical</em>.
-                </p>
-                <a href="#contact" class="cta"> BESOIN D'AIDE ? </a>
-            </div>
-            <img src="./assets/images/mini-nyz-solo.png" alt="Portrait avec effet de la photographe Robbie Lens" />
-        </section>
-        <section class="accueil-photos">
-            <h2>Mes champs d'action</h2>
-            <div>
-                <img src="./assets/images/accueil/element-1.png" alt="Twelve apostles - Australie" />
-                <img src="./assets/images/accueil/element-2.png" alt="Wai-O-Tapu - Nouvelle-Zélande" />
-                <img src="./assets/images/accueil/element-3.png" alt="Parc National d’Abel Tasman - Nouvelle-Zélande" />
-            </div>
-            <div>
-                <img src="./assets/images/accueil/element-4.png" alt="Lac Rotorua - Nouvelle-Zélande" />
-                <img src="./assets/images/accueil/element-5.png" alt="Milford Sound - Nouvelle-Zélande" />
-                <img src="./assets/images/accueil/element-6.png" alt="Lac Wanaka - Nouvelle-Zélande" />
-            </div>
-        </section>
-        <section id="contact" class="section-contact">
-            <h2> Contactez-moi ! </h2>
-            <form method="post" action="mailto:wilfriedyoro68@gmail.com">
-                <div class="form-nom-email">
-                    <div class="form-column">
-                        <label for="nom">Nom</label>
-                        <input type="text" name="nom" id="nom" />
-                    </div>
-                    <div class="form-column">
-                        <label for="email">Email</label>
-                        <input type="e-mail" name="email" id="email" />
-                    </div>
-                </div>
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="10"></textarea>
-                <input type="submit" value="ENVOYER" class="cta" />
-            </form>
-        </section>
-    </main>
-    <footer>
-        <a href="index.html" class="lien-icone">
-            NINCEKON
-        </a>
-        <div>
-            <a target="_blank" href="https://www.facebook.com/wilfried.yoro.56" class="lien-icone">
-                <img src="./vendor/bootstrap-icons/facebook.svg" alt="Facebook" width="32" height="32">
-            </a>
-            <a target="_blank" href="https://www.linkedin.com/in/nincekon-yoro-zand%C3%A9-44281110b/" class="lien-icone">
-                <img src="./vendor/bootstrap-icons/linkedin.svg" alt="Linkedin" width="32" height="32">
-            </a>
-        </div>
-    </footer>
-</body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
 
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">Nincekon <span>YORO Zandé</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-eyebrow-free reveal">
+          <h1>Nincekon</h1>
+          <p class="hero-tagline">Apprentissage, création, efficacité&nbsp;: je vous accompagne dans la maîtrise des technologies numériques et l'éveil de votre potentiel musical.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="portfolio.html">Voir mon portfolio</a>
+            <a class="btn btn-secondary" href="contact.html">Me contacter</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay">
+          <svg class="blob" viewBox="0 0 400 400" aria-hidden="true">
+            <path fill="#4c8c3c" opacity="0.16" d="M320,290Q290,380,190,370Q90,360,60,270Q30,180,110,110Q190,40,280,90Q370,140,350,215Q330,290,320,290Z" />
+          </svg>
+          <img src="assets/images/portrait.png" alt="Portrait de Nincekon, formateur en technologies numériques et musique" width="440" height="440">
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars">
+      <div class="container pillars-grid">
+        <div class="pillar pillar--tech">
+          <h3>
+            <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#1f4e79" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>
+            Technologies numériques
+          </h3>
+          <p>Formations et accompagnement pour prendre en main les outils numériques du quotidien et professionnels&nbsp;: bureautique, création de contenu, présence en ligne, automatisation de tâches simples. L'objectif&nbsp;: gagner en autonomie et en efficacité, à votre rythme.</p>
+        </div>
+        <div class="pillar pillar--apps">
+          <h3>
+            <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.6" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 18h6M8 6h8v6H8z"/></svg>
+            Développement d'applications
+          </h3>
+          <p>Conception et développement d'applications sur mesure, avec une spécialisation sur les <strong>SaaS</strong> (logiciels en ligne par abonnement) et les <strong>PWA</strong> (applications web progressives, installables et utilisables hors connexion). De l'idée au produit fonctionnel, en passant par une interface claire et performante.</p>
+        </div>
+        <div class="pillar pillar--music">
+          <h3>
+            <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="#4c8c3c" stroke-width="1.6" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 18V5l12-2v13"/></svg>
+            Potentiel musical
+          </h3>
+          <p>Un accompagnement pour révéler et structurer votre pratique musicale&nbsp;: initiation, méthode de travail, conseils de progression et découverte des outils numériques appliqués à la musique. Chaque parcours est adapté à votre niveau et à vos objectifs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <h2>Comment se déroule un accompagnement</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>On échange</h3>
+            <p>On clarifie votre besoin, votre niveau de départ et ce que vous souhaitez atteindre.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Je construis un plan</h3>
+            <p>Un parcours réaliste, avec des étapes claires et un rythme adapté à votre disponibilité.</p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>On avance ensemble</h3>
+            <p>Séances pratiques, suivi régulier, et ajustements au fil de vos progrès.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-blog">
+      <div class="container">
+        <div class="section-head">
+          <h2>Derniers articles du blog</h2>
+          <a class="btn btn-ghost" href="blog.html">Tous les articles →</a>
+        </div>
+        <div class="post-grid" id="home-articles">
+          <p>Chargement des articles…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Discutons de votre projet</h2>
+        <a class="btn btn-primary" href="contact.html">Demander un devis</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Nincekon</strong></p>
+        <p class="placeholder" title="Espace réservé — remplacez par votre ville et pays">Lorem ipsum, Lorem ipsum</p>
+      </div>
+      <nav aria-label="Pied de page">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="admin-link">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-note">
+      &copy; <span id="year"></span> Nincekon. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/blog-data.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pwa.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear().toString();
+  </script>
+  <script src="assets/js/firebase.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOwQaNNEPe3zopMI-nLMKGZ_ve_qekSPo",
+      authDomain: "nincekon-website.firebaseapp.com",
+      projectId: "nincekon-website",
+      storageBucket: "nincekon-website.firebasestorage.app",
+      messagingSenderId: "248004174462",
+      appId: "1:248004174462:web:d226b0e3bfbea2f896ee2f",
+      measurementId: "G-H1PJ49PBP7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
 </html>
