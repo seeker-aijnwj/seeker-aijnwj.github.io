@@ -1023,3 +1023,5 @@ section { padding-block: var(--space-5); }
   display: flex;
   gap: 0.4rem;
 }
+
+.text-white { color: var(--color-line); }
