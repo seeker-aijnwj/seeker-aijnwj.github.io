@@ -1,5 +1,6 @@
+import '../styles/Footer.css'
 
-export default function Footer() {
+const Footer = () => {
     return (
         <footer className="site-footer">
             <div className="container footer-grid">
@@ -26,3 +27,5 @@ export default function Footer() {
         </footer>
     );
 }
+
+export default Footer;

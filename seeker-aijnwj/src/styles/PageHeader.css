@@ -1,0 +1,9 @@
+
+/* ---------- PageHeader // Pages internes : en-tête simple ---------- */
+.page-header {
+    padding-block: var(--space-5) var(--space-4);
+    border-bottom: 1px solid var(--color-line);
+}
+.page-header p { max-width: var(--content-width); }
+
+section { padding-block: var(--space-5); }

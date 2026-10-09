@@ -1,4 +1,4 @@
-
+import '../styles/PageHeader.css'
 
 export default function PageHeader(props) {
 

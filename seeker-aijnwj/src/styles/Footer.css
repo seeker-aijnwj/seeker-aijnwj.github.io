@@ -1,0 +1,31 @@
+/* ---------- Footer // Pied de page ---------- */
+.site-footer {
+    border-top: 1px solid var(--color-line);
+    padding-block: var(--space-4);
+    background: var(--color-blue-deep);
+    color: #e7eef4;
+}
+.site-footer a { color: #e7eef4; }
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    font-size: 0.9rem;
+}
+.footer-grid nav ul {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+.footer-grid nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+.footer-note {
+    margin-top: var(--space-3);
+    font-size: 0.8rem;
+    color: #b9c6d4;
+}
